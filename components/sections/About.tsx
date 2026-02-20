@@ -114,13 +114,17 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative h-full min-h-[300px] rounded-2xl overflow-hidden">
-                        {/* Placeholder for an image representing the team or local context if available, otherwise abstract */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-brand-blue/20" />
+                    <div className="relative h-full min-h-[300px] rounded-2xl overflow-hidden group">
+                        <img
+                            src="/images/arriere.png"
+                            alt="Engagement Kobson Technology"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center p-6">
-                                <div className="text-4xl font-black text-white/10 mb-2">KOBSON</div>
-                                <div className="text-xl font-bold text-white/20">TECHNOLOGY</div>
+                            <div className="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="text-3xl font-black text-white/40 mb-2">KOBSON</div>
+                                <div className="text-lg font-bold text-white/20">TECHNOLOGY</div>
                             </div>
                         </div>
                     </div>

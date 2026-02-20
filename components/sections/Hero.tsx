@@ -7,10 +7,19 @@ import Link from 'next/link';
 export default function Hero() {
     return (
         <section id="school-pay" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark px-4 md:px-8 pt-20">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="/images/arriere.png"
+                    alt="Background"
+                    className="w-full h-full object-cover opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/60 to-brand-dark" />
+            </div>
 
             {/* Background Glow Effects */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-orange/20 rounded-full blur-[128px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[128px] pointer-events-none z-0" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-[128px] pointer-events-none z-0" />
 
             <div className="container max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
 

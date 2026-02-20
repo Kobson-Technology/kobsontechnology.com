@@ -30,7 +30,7 @@ export default function HamburgerMenu() {
 
             <div className="hidden md:flex fixed top-0 w-full z-40 bg-brand-navy/80 backdrop-blur-md p-4 justify-between items-center px-8 border-b border-white/10">
                 <div className="text-xl font-bold text-white flex items-center gap-2">
-                    <img src="/images/logo.png" alt="Kobson Technology" className="h-10 w-auto" />
+                    <img src="/images/logo.jpg" alt="Kobson Technology" className="h-10 w-auto" />
                 </div>
                 <nav className="flex space-x-6">
                     {menuItems.map((item) => (
@@ -55,7 +55,7 @@ export default function HamburgerMenu() {
                         className="fixed inset-y-0 right-0 z-40 w-full h-full bg-brand-dark/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center space-y-8"
                     >
                         <div className="mb-8">
-                            <img src="/images/logo.png" alt="Kobson Technology" className="h-20 w-auto" />
+                            <img src="/images/logo.jpg" alt="Kobson Technology" className="h-20 w-auto" />
                         </div>
                         {menuItems.map((item, index) => (
                             <motion.div
