@@ -13,7 +13,7 @@ export default function ReseauxMaintenancePage() {
             {/* Hero Section with Image */}
             <div className="relative h-[40vh] md:h-[50vh] w-full mb-12 overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1200&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop"
                     alt="Réseaux & Maintenance"
                     className="w-full h-full object-cover"
                 />

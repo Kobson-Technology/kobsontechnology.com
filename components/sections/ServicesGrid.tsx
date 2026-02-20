@@ -36,7 +36,7 @@ const services = [
         description: 'Installation, sécurisation et maintenance préventive de vos infrastructures informatiques.',
         icon: <ShieldCheck className="w-10 h-10 mb-4 text-brand-red" />,
         color: 'border-brand-red/20 hover:border-brand-red/50',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=800&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop'
     }
 ];
 
