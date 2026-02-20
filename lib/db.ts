@@ -1,14 +1,13 @@
-import Dexie, { type Table } from 'dexie';
+import type { Table } from 'dexie';
 
 export type SyncStatus = 'pending' | 'synced' | 'error';
 
 // ── Élève local (mirrors schema.sql exactly) ──────────────────────────────────
 export interface EleveLocal {
-    localId?: number;        // Dexie internal auto-key
+    localId?: number;
     syncStatus: SyncStatus;
     syncError?: string;
-    // PK from Neon (matricule)
-    matricule: string;        // Required — PK on server
+    matricule: string;
     matricule_ecole?: string | null;
     code_ecole?: string | null;
     nom: string;
@@ -20,9 +19,9 @@ export interface EleveLocal {
     adresse?: string | null;
     email_adresse?: string | null;
     niveau?: string | null;
-    statut: string;        // NAFF | AFF
-    regime?: string | null; // BOURSIER | 1/2 BOURSIER | NON BOURSIER
-    qualite?: string | null; // NON REDOUBLANT | REDOUBLANT
+    statut: string;
+    regime?: string | null;
+    qualite?: string | null;
     annee_scolaire?: string | null;
     telephone_sms?: string | null;
     moyen_paiement?: string | null;
@@ -40,17 +39,34 @@ export interface EleveLocal {
     updatedAt: string;
 }
 
-// ── Dexie DB ─────────────────────────────────────────────────────────────────
-class KobsonDB extends Dexie {
-    eleves!: Table<EleveLocal, number>;
+// ── Dexie DB (lazy singleton — only initialised in the browser) ───────────────
+// We defer the import and instantiation so that Next.js SSR/build never
+// tries to access IndexedDB (which doesn't exist on the server).
+let _db: import('dexie').Dexie & { eleves: Table<EleveLocal, number> } | null = null;
 
-    constructor() {
-        super('KobsonSchoolPayDB');
-        this.version(2).stores({
-            // ++localId = auto PK, matricule indexed for fast lookup
-            eleves: '++localId, syncStatus, matricule, nom, statut, isDeleted',
-        });
+export async function getDb() {
+    if (typeof window === 'undefined') {
+        // Server-side: return a no-op stub so the build never crashes
+        throw new Error('getDb() must be called only in the browser');
     }
+    if (_db) return _db;
+
+    const { default: Dexie } = await import('dexie');
+
+    class KobsonDB extends Dexie {
+        eleves!: Table<EleveLocal, number>;
+        constructor() {
+            super('KobsonSchoolPayDB');
+            this.version(2).stores({
+                eleves: '++localId, syncStatus, matricule, nom, statut, isDeleted',
+            });
+        }
+    }
+
+    _db = new KobsonDB() as typeof _db;
+    return _db!;
 }
 
-export const db = new KobsonDB();
+// ── Convenience re-export for components that already guard SSR ───────────────
+// Usage: const db = await getDb();
+export type { Table };
