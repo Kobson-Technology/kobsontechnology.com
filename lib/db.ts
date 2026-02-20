@@ -1,33 +1,31 @@
 import Dexie, { type Table } from 'dexie';
 
-// ── Sync status type ──────────────────────────────────────────────────────────
 export type SyncStatus = 'pending' | 'synced' | 'error';
 
-// ── Élève local record ────────────────────────────────────────────────────────
+// ── Élève local (mirrors schema.sql exactly) ──────────────────────────────────
 export interface EleveLocal {
-    localId?: number;  // Dexie auto-increment PK
-    serverId?: number;  // ID from Neon (null until synced)
+    localId?: number;        // Dexie internal auto-key
     syncStatus: SyncStatus;
     syncError?: string;
-    syncedAt?: string;
-    // All student fields
+    // PK from Neon (matricule)
+    matricule: string;        // Required — PK on server
+    matricule_ecole?: string | null;
+    code_ecole?: string | null;
     nom: string;
     prenom: string;
+    sexe: string;
     date_naissance?: string | null;
     lieu_naissance?: string | null;
-    sexe: string;
     nationalite?: string | null;
     adresse?: string | null;
     email_adresse?: string | null;
     niveau?: string | null;
-    statut: string;
-    regime?: string | null;
-    qualite?: string | null;
+    statut: string;        // NAFF | AFF
+    regime?: string | null; // BOURSIER | 1/2 BOURSIER | NON BOURSIER
+    qualite?: string | null; // NON REDOUBLANT | REDOUBLANT
     annee_scolaire?: string | null;
     telephone_sms?: string | null;
     moyen_paiement?: string | null;
-    matricule?: string | null;
-    matricule_ecole?: string | null;
     nom_pere?: string | null;
     prenom_pere?: string | null;
     telephone_pere?: string | null;
@@ -38,24 +36,21 @@ export interface EleveLocal {
     adresse_mere?: string | null;
     ai_risk_score?: number;
     ai_risk_level?: string;
-    // Soft delete support
     isDeleted?: boolean;
     updatedAt: string;
 }
 
-// ── Dexie Database Class ──────────────────────────────────────────────────────
+// ── Dexie DB ─────────────────────────────────────────────────────────────────
 class KobsonDB extends Dexie {
     eleves!: Table<EleveLocal, number>;
 
     constructor() {
         super('KobsonSchoolPayDB');
-
-        this.version(1).stores({
-            // localId = auto PK, index other useful fields
-            eleves: '++localId, syncStatus, serverId, nom, statut, isDeleted',
+        this.version(2).stores({
+            // ++localId = auto PK, matricule indexed for fast lookup
+            eleves: '++localId, syncStatus, matricule, nom, statut, isDeleted',
         });
     }
 }
 
-// Singleton export
 export const db = new KobsonDB();

@@ -5,9 +5,8 @@
 
 CREATE TABLE IF NOT EXISTS eleves (
     -- Identity
-    id              SERIAL PRIMARY KEY,
-    matricule       VARCHAR(50)  UNIQUE,          -- Matricule officiel (peut être null à la création)
-    matricule_ecole VARCHAR(50),
+    matricule       VARCHAR(50)  PRIMARY KEY,      -- Matricule officiel (peut être null à la création)
+    matricule_ecole VARCHAR(50) UNIQUE,
     code_ecole      VARCHAR(50),
 
     -- Personal Info
@@ -22,11 +21,10 @@ CREATE TABLE IF NOT EXISTS eleves (
 
     -- School Info
     niveau          VARCHAR(50),                  -- Ex: 6ème, 5ème, Term...
-    statut          VARCHAR(50)  DEFAULT 'Actif', -- Actif | Inactif | Transféré
-    regime          VARCHAR(50),                  -- Externe | Interne | Demi-pensionnaire
-    qualite         VARCHAR(50),                  -- Nouveau | Ancien | Redoublant
-    annee_scolaire  VARCHAR(20),                  -- Ex: 2024-2025
-
+    statut          VARCHAR(50)  DEFAULT 'NAFF', -- NAFF | AFF
+    regime          VARCHAR(50),                  -- BOURSIER | 1/1BOURSIER | NON BOURSIER 
+    qualite         VARCHAR(50),                  -- NOM REDOUBLANT | REDOUBLANT
+    annee_scolaire  VARCHAR(20),                  -- Ex: 2025-2026
     -- Contact & Payment
     telephone_sms   VARCHAR(30),
     moyen_paiement  VARCHAR(50),
