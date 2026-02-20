@@ -87,18 +87,10 @@ export default function AdminDashboard() {
                         {section.items.map((item) => (
                             <Link key={item.href} href={item.href}>
                                 <div
-                                    className="group p-4 rounded-xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                                    className="group p-4 rounded-xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:bg-white/5 hover:border-white/20"
                                     style={{
                                         background: `${section.color}08`,
                                         borderColor: `${section.color}25`,
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        (e.currentTarget as HTMLDivElement).style.borderColor = `${section.color}60`;
-                                        (e.currentTarget as HTMLDivElement).style.background = `${section.color}15`;
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        (e.currentTarget as HTMLDivElement).style.borderColor = `${section.color}25`;
-                                        (e.currentTarget as HTMLDivElement).style.background = `${section.color}08`;
                                     }}
                                 >
                                     <div className="text-2xl mb-2">{item.emoji}</div>
