@@ -42,25 +42,25 @@ export default function AboutPage() {
                         {/* Domain 1 */}
                         <div className="bg-brand-navy p-8 rounded-2xl border border-white/5 hover:border-brand-orange/30 transition-all group">
                             <Globe className="w-10 h-10 text-brand-orange mb-6 group-hover:scale-110 transition-transform" />
-                            <h3 className="text-2xl font-bold mb-4">Développement logiciel, mobile & web</h3>
+                            <h2 className="text-2xl font-bold mb-4">Logiciels, Web & Mobile</h2>
                             <p className="text-gray-400">
-                                Création de logiciels personnalisés, applications mobiles (Android & iOS) et sites internet modernes, pensés pour améliorer l’expérience utilisateur et renforcer la visibilité des entreprises.
+                                Création de logiciels personnalisés, applications mobiles (Android & iOS) et sites internet modernes.
                             </p>
                         </div>
 
                         {/* Domain 2 */}
                         <div className="bg-brand-navy p-8 rounded-2xl border border-white/5 hover:border-brand-green/30 transition-all group">
                             <GraduationCap className="w-10 h-10 text-brand-green mb-6 group-hover:scale-110 transition-transform" />
-                            <h3 className="text-2xl font-bold mb-4">Solutions éducatives</h3>
+                            <h2 className="text-2xl font-bold mb-4">Solutions éducatives</h2>
                             <p className="text-gray-400">
-                                Éditeur du logiciel <Link href="/kobson-school-pay" className="text-white font-bold hover:underline decoration-brand-green underline-offset-4">Kobson School Pay</Link>, qui automatise la gestion des inscriptions, paiements, salaires du personnel et communication avec les parents.
+                                Éditeur du logiciel <Link href="/kobson-school-pay" className="text-white font-bold hover:underline decoration-brand-green underline-offset-4">Kobson School Pay</Link>, qui automatise la gestion scolaire.
                             </p>
                         </div>
 
                         {/* Domain 3 */}
                         <div className="bg-brand-navy p-8 rounded-2xl border border-white/5 hover:border-brand-blue/30 transition-all group">
                             <Cpu className="w-10 h-10 text-brand-blue mb-6 group-hover:scale-110 transition-transform" />
-                            <h3 className="text-2xl font-bold mb-4">Infrastructure & réseaux</h3>
+                            <h2 className="text-2xl font-bold mb-4">Réseaux & Maintenance</h2>
                             <p className="text-gray-400">
                                 Installation de réseaux sécurisés et maintenance informatique pour garantir performance et fiabilité.
                             </p>

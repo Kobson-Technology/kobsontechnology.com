@@ -3,7 +3,7 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 export default function EditionLogicielsPage() {
     const service = {
-        title: 'Développement d\'Application de Gestion',
+        title: 'Édition de Logiciels',
         description: 'Des solutions d’applications de gestion sur mesure adaptées à vos besoins pour optimiser vos processus, améliorer l’efficacité et garantir la sécurité de vos données. Nous développons des outils comme Kobson School Pay pour répondre aux exigences spécifiques de votre secteur.',
         features: ['Audit des processus métier', 'Développement sur mesure', 'Sécurité et conformité des données', 'Formation et support utilisateur']
     };

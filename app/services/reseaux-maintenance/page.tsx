@@ -3,7 +3,7 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 export default function ReseauxMaintenancePage() {
     const service = {
-        title: 'Infogérance & Réseaux',
+        title: 'Réseaux & Maintenance',
         description: 'Des solutions complètes incluant l’installation de réseaux informatiques, la maintenance et l’infogérance. Nous garantissons la connectivité, la sécurité et la performance de votre infrastructure informatique pour que vous puissiez vous concentrer sur votre cœur de métier.',
         features: ['Installation de Réseaux Informatiques', 'Maintenance préventive et curative', 'Infogérance et Support', 'Sécurité des systèmes']
     };

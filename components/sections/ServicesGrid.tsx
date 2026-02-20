@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Smartphone, Globe, ShieldCheck, MonitorCheck, Database, ArrowRight } from 'lucide-react';
+import { Code, Smartphone, Globe, ShieldCheck, ArrowRight } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -53,7 +53,7 @@ export default function ServicesGrid() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 align-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
                     {services.map((service, index) => (
                         <Link key={index} href={`/services/${service.slug}`} className="block h-full">
                             <motion.div
@@ -90,6 +90,7 @@ export default function ServicesGrid() {
                 </div>
 
             </div>
-        </section >
+        </section>
     );
 }
+

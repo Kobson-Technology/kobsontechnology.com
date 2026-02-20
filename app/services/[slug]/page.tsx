@@ -4,23 +4,23 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const servicesData: Record<string, { title: string; description: string; features: string[] }> = {
     'edition-logiciels': {
-        title: 'Développement d\'Application de Gestion',
-        description: 'Des solutions d’applications de gestion sur mesure adaptées à vos besoins pour optimiser vos processus, améliorer l’efficacité et garantir la sécurité de vos données. Nous développons des outils comme Kobson School Pay pour répondre aux exigences spécifiques de votre secteur.',
+        title: 'Édition de Logiciels',
+        description: 'Des solutions d’applications de gestion sur mesure adaptées aux besoins spécifiques de votre secteur.',
         features: ['Audit des processus métier', 'Développement sur mesure', 'Sécurité et conformité des données', 'Formation et support utilisateur']
     },
     'developpement-web': {
         title: 'Développement Web',
-        description: 'Des solutions de développement web adaptées à vos besoins pour garantir une présence en ligne efficace, sécurisée et performante. Site vitrine, e-commerce ou portail web, nous concrétisons votre vision digitale.',
+        description: 'Des solutions de développement web adaptées à vos besoins pour garantir une présence en ligne efficace, sécurisée et performante.',
         features: ['Sites Vitrines & E-commerce', 'Optimisation SEO & Performance', 'Design Responsive', 'Hébergement et Maintenance']
     },
     'applications-mobiles': {
         title: 'Applications Mobiles',
-        description: 'Étendez votre portée avec des applications mobiles intuitives. Bien que non explicitement détaillé dans nos archives, le développement mobile fait partie intégrante de notre offre pour accompagner votre transformation numérique sur tous les écrans.',
+        description: 'Étendez votre portée avec des applications mobiles intuitives (iOS & Android).',
         features: ['Applications iOS & Android', 'Solutions Hybrides', 'Design UI/UX Mobile', 'Maintenance évolutive']
     },
     'reseaux-maintenance': {
-        title: 'Infogérance & Réseaux',
-        description: 'Des solutions complètes incluant l’installation de réseaux informatiques, la maintenance et l’infogérance. Nous garantissons la connectivité, la sécurité et la performance de votre infrastructure informatique pour que vous puissiez vous concentrer sur votre cœur de métier.',
+        title: 'Réseaux & Maintenance',
+        description: 'Installation, sécurisation et maintenance préventive de vos infrastructures informatiques.',
         features: ['Installation de Réseaux Informatiques', 'Maintenance préventive et curative', 'Infogérance et Support', 'Sécurité des systèmes']
     }
 };
